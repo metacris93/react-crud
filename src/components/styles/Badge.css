@@ -1,0 +1,56 @@
+.badge {
+    width: 100%;
+    padding: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 8px 8px 8px 8px;
+    overflow: hidden;
+    /* height: 380px; */
+}
+.badge_header {
+    padding: 0.5rem 0;
+    height: 80px;
+    background: #1b1b25;
+    display: flex;
+    justify-content: center;
+}
+.badge_section-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    color: black;
+}
+.badge_section-name h1 {
+    margin-right: 1rem;
+}
+.badge_section-name img {
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+.badge_section-info {
+    display: flex;
+    font-size: 21px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+    background: #f4f4f7;
+    color: black;
+} 
+.badge_avatar {
+    border-radius: 50%;
+    margin-right: 1rem;
+    width: 120px;
+    /* height: 120px; */
+}
+.badge_footer {
+    height: 54px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #98ca3f;
+    font-weight: bold;
+    font-style: italic;
+}
