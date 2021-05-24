@@ -54,3 +54,38 @@
     font-weight: bold;
     font-style: italic;
 }
+.Card__badge {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    grid-template-rows: minmax(140px, 1fr);
+    border: solid 1px transparent;
+    margin: 1rem 0;
+    box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.5);
+    border-radius: 0.25rem;
+    font-size: 18px;
+}
+.Card__badge-info {
+    padding: 1rem 0;
+}
+.Card__badge-image {
+    place-self: center;
+}
+.Card__badge-image img {
+    border-radius: 50%;
+}
+[class*="icon"] {
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    vertical-align: middle;
+    display: inline-block;
+}
+.twitter-icon {
+    background-image: url('../../images/twitter.svg');
+}
+.user-icon {
+    background-image: url('../../images/user.svg');
+}
+.mail-icon {
+    background-image: url('../../images/mail.svg');
+}
