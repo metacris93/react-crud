@@ -2,8 +2,9 @@ import React from 'react';
 import './styles/BadgeNew.css';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
-import header from '../images/badge-header.svg';
-
+import header from '../images/platziconf-logo.svg';
+import api from '../api';
+import md5 from 'md5';
 class BadgeNew extends React.Component {
     state = {
         form: {
@@ -11,7 +12,8 @@ class BadgeNew extends React.Component {
             lastName: '',
             email: '',
             jobTitle: '',
-            twitter: ''
+            twitter: '',
+            avatarUrl: ''
         }
     };
     handleChange = e => {
@@ -25,24 +27,48 @@ class BadgeNew extends React.Component {
             }
         })
     };
+    handleSubmit = async e => {
+        e.preventDefault();
+        this.setState({
+            loading: true,
+            error: null
+        });
+        try {
+            this.state.form.avatarUrl = `https://www.gravatar.com/avatar/${md5(this.state.form.email)}?d=identicon`;
+            await api.badges.create(this.state.form);
+            this.setState({
+                loading: false
+            });
+        } catch (error) {
+            console.log(error.message);
+            this.setState({
+                loading: false,
+                error: error
+            });
+        }
+    };
     render() {
         return (
             <React.Fragment>
                 <div className="BadgeNew__hero">
-                    <img className="img-fluid" src={header} alt="" />
+                    <img className="BadgeNew__hero-image img-fluid" src={header} alt="" />
                 </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-6">
                             <Badge 
-                                firstName={this.state.form.firstName}
-                                lastName={this.state.form.lastName}
-                                jobTitle={this.state.form.jobTitle}
-                                twitterAccount={this.state.form.twitter}
+                                firstName={this.state.form.firstName || 'First Name'}
+                                lastName={this.state.form.lastName || 'Last Name'}
+                                jobTitle={this.state.form.jobTitle || 'Job Title'}
+                                email={this.state.form.email || 'Email'}
+                                twitterAccount={this.state.form.twitter || '@twitter'}
                             />
                         </div>
                         <div className="col-6">
-                            <BadgeForm onChangeBadgeForm={this.handleChange} formValues={this.state.form} />
+                            <BadgeForm 
+                                onChangeBadgeForm={this.handleChange}
+                                formValues={this.state.form}
+                                onBadgeSubmit={this.handleSubmit} />
                         </div>
                     </div>
                 </div>
