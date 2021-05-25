@@ -25,7 +25,7 @@ class BadgeForm extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <h1>New Attendant</h1>
+                <h1>{this.props.titleForm}</h1>
                 <form onSubmit={this.props.onBadgeSubmit}>
                     <div className="mb-3">
                         <label>First Name</label>
@@ -48,6 +48,9 @@ class BadgeForm extends React.Component {
                         <input onChange={this.props.onChangeBadgeForm} className="form-control" type="text" name="twitter" value={this.props.formValues.twitter} />
                     </div>
                     <button type="submit" className="btn btn-primary">Save</button>
+                    {this.props.error &&
+                        <p className="text-danger">{this.props.error.message}</p>
+                    }
                 </form>
             </React.Fragment>
         );

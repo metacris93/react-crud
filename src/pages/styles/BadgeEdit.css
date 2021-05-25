@@ -1,0 +1,26 @@
+.BadgeEdit__hero {
+    width: 100%;
+    padding: 2rem 0;
+    background: url('../../images/stars.svg'), #1B1B25;
+    background-repeat: repeat;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  
+    display: flex;
+    justify-content: center;
+}
+.BadgeEdit__home {
+    margin-bottom: 2rem;
+}
+.BadgeEdit__home img {
+    height: 200px;
+}
+.BadgeEdit__hero-image {
+    max-height: 100px;
+}
+.Card__badge-label {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
