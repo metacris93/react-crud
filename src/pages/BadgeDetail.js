@@ -38,30 +38,22 @@ function BadgeDetail(props) {
                         </div>
                     </div>
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col">
+                <div className="container-sm">
+                    <div className="row justify-content-center">
+                        <div className="col-8">
                             <Badge 
                                 firstName={firstName || 'First Name'}
                                 lastName={lastName || 'Last Name'}
                                 jobTitle={jobTitle || 'Job Title'}
                                 email={email || 'Email'}
-                                twitterAccount={twitter || '@twitter'}
-                            />
-                        </div>
-                        <div className="col">
-                            <h2>Actions</h2>
-                            {/* <button onClick={() => {setCount(count + 1)}} className="btn btn-primary mb-4">Increase count {count}</button> */}
-                            <div>
-                                <div><Link className="btn btn-primary mb-4" to={`/badges/${id}/edit`}>Edit</Link></div>
-                            </div>
-                            <div>
-                                <button onClick={props.onOpenModal} className="btn btn-danger">Delete</button>
+                                twitterAccount={twitter || '@twitter'}/>
+                            <div className="d-flex justify-content-evenly">
+                                <Link className="btn btn-primary mb-4" to={`/badges/${id}/edit`}>Edit</Link>
+                                <button onClick={props.onOpenModal} className="btn btn-danger mb-4">Delete</button>
                                 <DeleteBadgeModal
                                     isOpen={props.modalIsOpen}
                                     onClose={props.onCloseModal}
-                                    onDeleteBadge={props.onDeleteBadge}
-                                >
+                                    onDeleteBadge={props.onDeleteBadge}>
                                 </DeleteBadgeModal>
                             </div>
                         </div>
